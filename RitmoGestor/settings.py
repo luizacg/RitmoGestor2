@@ -1,5 +1,5 @@
 import os
-
+import django_on_heroku
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = 'jy8c-n9y=pf##!2^jae-l_5iafq6q%wfq8gdb6c0r5d52su+9y'
@@ -96,6 +96,8 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/'
 
+django_on_heroku.settings(locals())
+
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
@@ -104,4 +106,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ),
+
+
 }
